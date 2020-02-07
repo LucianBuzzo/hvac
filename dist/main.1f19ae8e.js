@@ -38482,6 +38482,8 @@ var App = function App(props) {
   }), _react.default.createElement("br", null), _react.default.createElement("br", null), _react.default.createElement(_react2.Button, {
     onClick: send
   }, "Test"), _react.default.createElement("br", null), _react.default.createElement("br", null), _react.default.createElement(_react2.TextArea, {
+    width: 600,
+    height: 600,
     value: JSON.stringify(pinData, null, 4),
     onChange: console.log
   }))));
@@ -38518,7 +38520,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54186" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56083" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

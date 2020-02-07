@@ -54,7 +54,10 @@ const App = (props) => {
           <Button onClick={send}>Test</Button>
           <br />
           <br />
-          <TextArea value={JSON.stringify(pinData, null, 4)} onChange={console.log} />
+          <TextArea
+            width={600}
+            height={600}
+            value={JSON.stringify(pinData, null, 4)} onChange={console.log} />
 
         </div>
       </ThemeProvider>
