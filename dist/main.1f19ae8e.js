@@ -38441,6 +38441,25 @@ var App = function App(props) {
       pin = _useState2[0],
       setPin = _useState2[1];
 
+  var _useState3 = (0, _react.useState)(''),
+      _useState4 = _slicedToArray(_useState3, 2),
+      pinData = _useState4[0],
+      setPinData = _useState4[1];
+
+  (0, _react.useEffect)(function () {
+    var interval = setInterval(function () {
+      fetch('./pins').then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        console.log(data);
+        setPinData(data);
+      });
+    }, 1000);
+    return function () {
+      return clearInterval(interval);
+    };
+  }, []);
+
   var send = function send() {
     fetch('./pin/' + pin);
   };
@@ -38462,7 +38481,10 @@ var App = function App(props) {
     onChange: setPin
   }), _react.default.createElement("br", null), _react.default.createElement("br", null), _react.default.createElement(_react2.Button, {
     onClick: send
-  }, "Test"))));
+  }, "Test"), _react.default.createElement("br", null), _react.default.createElement("br", null), _react.default.createElement(_react2.TextArea, {
+    value: JSON.stringify(pinData, null, 4),
+    onChange: console.log
+  }))));
 };
 
 var rootElement = document.getElementById('root');
@@ -38496,7 +38518,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50824" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54186" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

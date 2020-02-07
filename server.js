@@ -33,7 +33,7 @@ app.get('/pins', async (req, res) => {
   const data = []
 
   for (const pin of pins) {
-    const enabled = await gpiop.setup(pin, gpiop.DIR_OUT)
+    const enabled = await gpiop.setup(pin, gpiop.DIR_IN)
       .then(() => gpiop.read(pin))
       .catch((err) => {
         console.log('Error: ', err.toString())
